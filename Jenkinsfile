@@ -9,7 +9,7 @@ stages {
     stage('Getting project from Github') {
             steps {
                 git branch : 'main' ,
-                git branch: 'main', url: 'https://github.com/GhaithBh/front.git',
+                git branch: 'main', url: 'https://github.com/sarraklidi/front.git',
                 credentialsId:"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";
             }
         }
@@ -26,20 +26,20 @@ stages {
         
         stage ('Build our image'){
             steps{
-                sh 'docker build -t ghaithbhs/achat_frontf .'
+                sh 'docker build -t sarraklidi/achat_frontf .'
             }
         }
         stage('Docker login')
         {
             steps {
-                sh 'echo $dockerhub_PSW | docker login -u ghaithbhs -p dckr_pat_PvFfLE0rm--tKJiRL1igKeLc2fQ'
+                sh 'echo $dockerhub_PSW | docker login -u sarraklidi -p dckr_pat_os789gFKgYlRvT9wPzplzmIlttk'
             }    
        
         }
       stage('Push') {
 
 			steps {
-				sh 'docker push ghaithbhs/achat_frontf'
+				sh 'docker push sarraklidi/achat_frontf'
 			}
 		}
     }
