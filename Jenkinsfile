@@ -32,15 +32,14 @@ stages {
         stage('Docker login')
         {
             steps {
-                sh 'echo $dockerhub_PSW | docker login -u sarraklidi -p dckr_pat_os789gFKgYlRvT9wPzplzmIlttk'
+		   
+		    sh '''
+		    echo $dockerhub_PSW | docker login -u sarraklidi -p dckr_pat_os789gFKgYlRvT9wPzplzmIlttk
+		    docker push sarraklidi/achat_frontf 
+		    '''
             }    
        
         }
-      stage('Push') {
-
-			steps {
-				sh 'docker push sarraklidi/achat_frontf'
-			}
-		}
+    
     }
 }
